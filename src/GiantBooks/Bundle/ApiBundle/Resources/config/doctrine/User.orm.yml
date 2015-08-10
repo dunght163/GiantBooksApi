@@ -1,0 +1,55 @@
+GiantBooks\Bundle\ApiBundle\Entity\User:
+    type: entity
+    table: user
+    indexes:
+        IDX_USER_TO_PERSON:
+            columns:
+                - person_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        uname:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        pwd:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        email:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        createDate:
+            type: date
+            nullable: false
+            comment: ''
+            column: create_date
+        active:
+            type: boolean
+            nullable: false
+            comment: ''
+    manyToOne:
+        person:
+            targetEntity: Person
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                person_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

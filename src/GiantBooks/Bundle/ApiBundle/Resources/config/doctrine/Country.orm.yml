@@ -1,0 +1,25 @@
+GiantBooks\Bundle\ApiBundle\Entity\Country:
+    type: entity
+    table: country
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        country:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        lastUpdate:
+            type: date
+            nullable: false
+            comment: ''
+            column: last_update
+    lifecycleCallbacks: {  }

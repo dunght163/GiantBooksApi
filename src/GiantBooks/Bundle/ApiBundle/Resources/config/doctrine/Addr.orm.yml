@@ -1,0 +1,63 @@
+GiantBooks\Bundle\ApiBundle\Entity\Addr:
+    type: entity
+    table: addr
+    indexes:
+        IDX_ADDR_TO_CITY:
+            columns:
+                - city_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        addr:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        district:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        postalCode:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            column: postal_code
+        phone:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+        location:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        lastUpdate:
+            type: date
+            nullable: true
+            comment: ''
+            column: last_update
+    manyToOne:
+        city:
+            targetEntity: City
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                city_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

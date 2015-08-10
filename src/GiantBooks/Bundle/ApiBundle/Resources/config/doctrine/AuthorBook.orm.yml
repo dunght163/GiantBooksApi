@@ -1,0 +1,39 @@
+GiantBooks\Bundle\ApiBundle\Entity\AuthorBook:
+    type: entity
+    table: author_book
+    indexes:
+        IDX_AUTHORBOOK_TO_AUTHOR:
+            columns:
+                - author_id
+        IDX_AUTHORBOOK_TO_BOOK:
+            columns:
+                - book_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        author:
+            targetEntity: Author
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                author_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        book:
+            targetEntity: Book
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                book_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
