@@ -1,3 +1,7 @@
+giant_books_api:
+    resource: "@GiantBooksApiBundle/Resources/config/routing.yml"
+    prefix:   /giant-books
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
